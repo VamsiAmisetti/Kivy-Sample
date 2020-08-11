@@ -1,0 +1,164 @@
+<FlatButton@ButtonBehavior+Label>:
+    font_size: 14
+
+<OperatorWindow>:
+    id: main_win
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        id: header
+        size_hint_y: None
+        height: 40
+        canvas.before:
+            Color:
+                rgba: (.06, .45, .45, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            text: 'SRI VASAVI ENGINEERING COLLEGE'
+            size_hint_x: .9
+            bold: True
+            color: (1,1,1,1)
+    BoxLayout:
+        id: current
+        size_hint_y: None
+        height: 50
+        canvas.before:
+            Color:
+                rgba: (1,1,1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        TextInput:
+            id: file_name
+            size_hint_x: .9
+            multiline: False
+        Button:
+            id: load_file
+            text: 'Upload File'
+            background_normal: ''
+            background_color: (.06, .4, .4, 1)
+            size_hint_x: .2
+        Button: 
+            id: fetch_data
+            text: 'Fetch Data'
+            background_normal: ''
+            background_color: (.06, .65, .65, 1)
+            size_hint_x: .2
+            on_release: root.getData()
+
+    BoxLayout:
+        padding: 10
+        BoxLayout:
+            id: student_details
+            orientation: "vertical"
+            size_hint_x: .8
+            spacing: 10
+
+            BoxLayout:
+                id: student_labels
+                size_hint_y: None
+                height: 40
+                canvas.before:
+                    Color:
+                        rgba: (.06,.45,.45, 1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                    
+                FlatButton:
+                    text: 'Programme'
+                    size_hint_x: .2
+                FlatButton:
+                    text: 'CGPA'
+                    size_hint_x: .2
+                FlatButton:
+                    text: 'Percentage'
+                    size_hint_x: .2
+                FlatButton:
+                    text: 'No.of Backlogs'
+                    size_hint_x: .2
+
+            BoxLayout:
+                id: student_inputs
+                size_hint_y: None
+                height: 30
+                spacing: 5
+                TextInput:
+                    id: prog_inp
+                    size_hint_x: .2
+                    multiline: False
+                TextInput:
+                    id: cgpa_inp
+                    size_hint_x: .2
+                    multiline: False
+                TextInput:
+                    id: perc_inp
+                    size_hint_x: .2
+                    multiline: False
+                TextInput:
+                    id: backlogs_inp
+                    size_hint_x: .2
+                    multiline: False
+            BoxLayout:
+                id: student_data
+                orientation: 'vertical'
+                BoxLayout:
+                    size_hint_y: None
+                    height: 30
+                    canvas.before:
+                        Color:
+                            rgba: (.06, .45,.45, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    Label:
+                        text: 'Regd.No'
+                        size_hint_x: .2
+                    Label:
+                        text: 'Student Name'
+                        size_hint_x: .4
+                    Label:
+                        text: 'Dept'
+                        size_hint_x: .1
+                    Label:
+                        text: 'CGPA'
+                        size_hint_x: .1
+                    Label:
+                        text: '%age'
+                        size_hint_x: .1
+                    Label:
+                        text: 'Backlogs'
+                        size_hint_x: .1
+                GridLayout:
+                    id: students
+                    cols: 1
+
+        BoxLayout:
+            id: count
+            orientation: 'vertical'
+            size_hint_x: .2
+
+            TextInput:
+                id: count_id
+                readonly: True
+                text: 'Total No.of Eligible Students: 0\nStudents from:\n CSE: 0\n ECE: 0\n EEE: 0\n ME : 0\n CE : 0\n MBA: 0\nDiploma : 0\n'
+    BoxLayout:
+        id: footer
+        size_hint_y: None
+        height: 30
+        canvas.before:
+            Color:
+                rgba: (.06, .47, .47, 1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: 'Maintained by A.Vamsi Krishna'
